@@ -1,8 +1,12 @@
+import { useContext } from "react"
 import { NavLink } from "react-router-dom"
-
+import CartContext from "../../context/CartContext/CartContext"
 
 
 export default function NavBar () {
+
+  const { cart } = useContext(CartContext)
+
   return (
     <ul className="flex flex-row justify-end m-4 shadow shadow-blue-500">
         <NavLink to={'/'} className="mx-4 px-4 py-2 cursor-pointer shadow bg-gray-500 shadow-orange-600 text-white"> Home </NavLink>
@@ -11,7 +15,10 @@ export default function NavBar () {
         <NavLink to={'/category/mother'} className="mx-4 px-4 py-2 cursor-pointer shadow bg-gray-500 shadow-orange-600 text-white"> Motherboards </NavLink>
         <NavLink to={'/category/ram'} className="mx-4 px-4 py-2 cursor-pointer shadow bg-gray-500 shadow-orange-600 text-white"> Memorias Ram </NavLink>
         <NavLink to={'/category/psu'} className="mx-4 px-4 py-2 cursor-pointer shadow bg-gray-500 shadow-orange-600 text-white"> Fuentes </NavLink>
-        <NavLink to={'/cart'} className="mx-4 px-4 py-2 cursor-pointer shadow bg-gray-500 shadow-orange-600 text-white"> CART </NavLink>
+        <NavLink to={'/cart'} className="mx-4 px-4 py-2 cursor-pointer shadow bg-gray-500 shadow-orange-600 text-white"> 
+          CART 
+          <span>{cart.length}</span>
+        </NavLink>
     </ul>
   )
 }

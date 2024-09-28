@@ -1,22 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import ItemList from './ItemList'
-//import { useParams } from 'react-router-dom'
-import { getDocs, collection, getFirestore } from 'firebase/firestore'
+import { useParams } from 'react-router-dom'
+import { getDocs, collection, query, where, getFirestore } from 'firebase/firestore'
+import CartContext from '../../context/CartContext/CartContext'
 
 export default function ItemListContainer () {
 
   const [products, setProducts] = useState([])
+  const { categoryId } = useParams()
+  const contextLocal = useContext(CartContext)
 
   useEffect(() => {
     const db = getFirestore()
     const itemCollection = collection(db, 'items')
-    getDocs(itemCollection)
+    const queryCategory = categoryId 
+    ? query(itemCollection, where('category', '==', categoryId))
+    : itemCollection;
+    getDocs(queryCategory)
       .then ((snapshot) => {
         setProducts(
-          snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
         )
       })
-  }, [])
+  }, [categoryId])
 
   return (
     <div className="flex flex-row m-4 h-auto shadow shadow-red-500">
