@@ -2,14 +2,18 @@ import { Link } from 'react-router-dom'
 
 export default function Item ({ item }) {
   return (
-    <div key={item.id} className="w-40 h-auto m-4 shadow shadow-indigo-900">
-        <img src={item.image} alt={item.name} />
+    <div key={item.id} className="flex flex-row w-[580px] h-fit m-4 p-2 rounded-xl shadow shadow-indigo-900 bg-gray-900"
+    
+    >
+      <img src={item.image} alt={item.name} className='p-4 w-64 h-64' />
+      <div className='flex flex-col justify-between p-4 text-lg'>
         <h3>Name: {item.name}</h3>
-        <p>Description: {item.model}</p>
+        <p>Model: {item.model}</p>
         <p>Price: {item.price}</p>
         <p>Stock: {item.stock}</p>
-        <p>Category: {item.category}</p>
-        <Link className='button' to={`/detail/${item.id}`}>Ver Detalle</Link>
+        <Link className='mt-auto inline-block px-4 py-2 bg-amber-400 font-semibold rounded-lg shadow-md hover:bg-amber-500 focus:outline-none' 
+              to={`/detail/${item.id}`}> View Details </Link>
+      </div>
     </div>
   )
 }
