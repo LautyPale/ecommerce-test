@@ -30,7 +30,7 @@ export default function ItemDetailContainer() {
   }, [id])
 
   return (
-    <div className="flex flex-row m-4 h-auto shadow shadow-green-500">
+    <div className="mx-auto w-7/12 flex flex-row m-4 shadow shadow-customBlue">
         <ItemDetail item={item} onAdd={onAdd}/>
     </div>
   )

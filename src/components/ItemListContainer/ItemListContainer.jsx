@@ -24,7 +24,7 @@ export default function ItemListContainer () {
   }, [categoryId])
 
   return (
-    <div className="flex flex-row m-4 h-auto shadow shadow-indigo-900 bg-slate-950 rounded-xl">
+    <div className="flex flex-row m-4 h-auto shadow shadow-customBlue bg-slate-950 rounded-xl">
         <ItemList items={products} />
     </div>
   )

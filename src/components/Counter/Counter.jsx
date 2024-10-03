@@ -19,11 +19,12 @@ export default function Counter({ onAdd, quantity = 1 }) {
     }
 
     return (
-        <div>
-            <button onClick={handleDecrement} className="px-2 py-0.5 border-4 border-black">-</button>
-            <span className="m-2 px-2 py-0.5">{count}</span>
-            <button onClick={handleIncrement} className="px-2 py-0.5 border-4 border-black">+</button>
-            <button onClick={handleAddToCart} className="mx-2 px-2 py-0.5 border-4 border-black">Add to cart</button>
+
+        <div className="rounded-full text-white bg-black flex flew-row items-center border border-white">
+            <button onClick={handleDecrement} className="p-2 pr-3 rounded-l-full bg-customOrange text-2xl text-white">-</button>
+            <span className="px-4 select-none">{count}</span>
+            <button onClick={handleIncrement} className="p-2 pl-3 rounded-r-full bg-customBlue text-2xl text-white">+</button>
+            <button onClick={handleAddToCart} className="p-2 ">Add to cart</button>
         </div>
     )
 }

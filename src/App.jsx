@@ -9,7 +9,7 @@ import CartContextProvider from "./context/CartContext/CartContextProvider.jsx";
 export default function App() {
 
   return (
-    <>
+    <div className="font-nunito">
       <CartContextProvider>
         <NavBar />
         <Routes>
@@ -19,6 +19,6 @@ export default function App() {
             <Route path='/cart' element={<CartDetail/>}/>
         </Routes>
       </CartContextProvider>
-    </>
+    </div>
   )
 }
