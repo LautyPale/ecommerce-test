@@ -6,7 +6,7 @@ export default function Item ({ item }) {
     
     >
       <img src={item.image} alt={item.name} className='p-4 w-64 h-64' />
-      <div className='flex flex-col justify-between p-4 text-lg flex-grow'>
+      <div className='flex flex-col flex-grow justify-between p-4 text-lg'>
         <h3>Name: {item.name}</h3>
         <p>Model: {item.model}</p>
         <p>Price: {item.price}</p>

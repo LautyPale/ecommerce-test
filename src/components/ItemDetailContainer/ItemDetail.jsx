@@ -19,7 +19,7 @@ export default function ItemDetail({ item, onAdd }) {
         <p className="my-8 text-pretty">{item.description}</p>
 
         <div className="flex flex-row">
-          <Counter onAdd={ onAdd }/>
+          <Counter onAdd={ onAdd } itemStock={item.stock}/>
         </div>
         
       </div>
