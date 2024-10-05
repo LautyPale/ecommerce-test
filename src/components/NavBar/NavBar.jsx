@@ -10,7 +10,7 @@ export default function NavBar () {
   const { cart } = useContext(CartContext)
 
   return (
-    <ul className="flex flex-row justify-between items-center m-4 shadow shadow-customOrange bg-slate-950 rounded-xl h-16 text-lg font-bold">
+    <ul className="flex flex-row justify-between items-center m-4 shadow shadow-customOrangeDark bg-slate-950 rounded-xl h-16 text-lg font-bold">
 
       <div className="flex items-center h-full">
         <NavLink to={'/'} className="mx-4 px-4 cursor-pointer shadow hover:bg-gray-900 hover:text-orange-500 h-full flex items-center"> 

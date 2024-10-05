@@ -10,6 +10,14 @@ export default function ItemListContainer () {
   const [loading, setLoading] = useState(true)
   const { categoryId } = useParams()
 
+  const categoryIdNames ={
+    'GPU': 'Graphics Cards',
+    'CPU': 'Processors',
+    'Motherboard': 'Motherboards',
+    'RAM': 'RAM Memory',
+    'PSU': 'Power Supply'
+  }
+
   useEffect(() => {
     const db = getFirestore()
     const itemCollection = collection(db, 'items')
@@ -50,9 +58,41 @@ export default function ItemListContainer () {
     )
   }
 
-  return (
-    <div className="flex flex-row m-4 h-auto shadow shadow-customBlue bg-slate-950 rounded-xl">
-        <ItemList items={products} />
-    </div>
-  )
+  const getRandomDeals = (products) => {
+    const lowPriceProducts = products.filter(product => product.price < 200);
+    const shuffled = lowPriceProducts.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  }
+
+  if(categoryId === undefined) {
+
+    const deals = getRandomDeals(products);
+
+    return (
+      <div className="flex flex-col m-4 h-auto shadow shadow-customBlueDark bg-slate-950 rounded-xl">
+          <div>
+            <h1 className="text-5xl text-center pt-8 px-4">Welcome to <span className='text-customOrangeDark'>ComTech Store</span></h1>
+          </div>
+          <div>
+            <h2 className='text-4xl ml-4 px-4 pt-4'>Deals</h2>
+            <ItemList items={deals}/>
+          </div>
+          <div>
+            <h2 className='text-4xl ml-4 px-4'>All Products</h2>
+            <ItemList items={products} />
+          </div>
+          
+      </div>
+    )
+  } else {
+    return (
+      <div className="flex flex-col m-4 h-auto shadow shadow-customBlueDark bg-slate-950 rounded-xl">
+        <div>
+          <h2 className='text-4xl m-4 px-4 pt-4'>{categoryIdNames[categoryId]}</h2>
+          <ItemList items={products} />
+        </div>
+      </div>
+    )
+  }
+  
 }

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Item ({ item }) {
   return (
-    <div key={item.id} className="flex flex-row w-[580px] m-4 p-2 rounded-xl shadow shadow-orange-700 bg-gray-900"
+    <div key={item.id} className="flex flex-row w-[580px] m-4 p-2 rounded-xl shadow shadow-customOrangeDark bg-gray-900"
     
     >
       <img src={item.image} alt={item.name} className='p-4 w-64 h-64' />
