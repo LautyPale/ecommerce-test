@@ -68,7 +68,8 @@ export default function Counter({ onAdd, quantity = 1, itemStock }) {
                 <button onClick={handleDecrement} className="p-2 pr-3 rounded-l-full bg-customOrange text-2xl text-white">-</button>
                 <span className={`px-4 select-none ${animate ? 'text-red-500 animate-pulse' : ''}`}>{stock === 0 ? 0 : count}</span>
                 <button onClick={handleIncrement} className="p-2 pl-3 rounded-r-full bg-customBlue text-2xl text-white">+</button>
-                <button onClick={handleAddToCart} className={`p-2 px-4 font-extrabold ${stock === 0 ? 'text-red-500' : 'hover:text-customOrange'}`} disabled={stock === 0}>Add to cart</button>
+                <button onClick={handleAddToCart} className={`p-2 px-4 font-extrabold ${stock === 0 ? 'text-red-500' : 'hover:text-customOrange'}`} 
+                disabled={stock === 0}>Add to cart</button>
 
                 <ToastContainer 
                     position="top-right"

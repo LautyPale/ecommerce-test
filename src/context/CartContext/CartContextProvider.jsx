@@ -15,15 +15,16 @@ const CartContextProvider = ({children}) => {
             setCart([
                 ...cart,
                 {
+                    ...item,
                     quantity: quantity,
-                    ...item
-                }
-            ])
+                },
+            ]);
         } else {
             setCart([
                 cart.map(cartItem => {
                     cartItem.id === item.id 
-                    ? { ...cartItem, quantity: cartItem.quantity + quantity } : cartItem
+                    ? { ...cartItem, quantity: cartItem.quantity + quantity } 
+                    : cartItem
                 })
             ])
 

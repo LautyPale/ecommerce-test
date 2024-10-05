@@ -33,13 +33,13 @@ export default function CartDetail () {
     
     const localError = {}
     if (!buyer.name) {
-      localError.name = 'Name is required'
+      localError.name = 'Name is required.'
     }
     if (!buyer.email) {
-      localError.email = 'Email is required'
+      localError.email = 'Email is required.'
     }
     if (cart.length === 0) {
-      localError.cart = 'Cart cannot be empty'
+      localError.cart = 'Cart cannot be empty.'
     }
     if (Object.keys(localError).length === 0) {
       addOrder()
@@ -78,19 +78,27 @@ export default function CartDetail () {
   }
 
   return (
-    <div className=''>
-      CART
-      <div className='cart-container'>
+    <div className='flex flex-col items-center'>
+      <div className='mx-auto text-4xl py-4'>CART</div>
+      <div className='flex flex-row'>
         {cart.map((item) => (
-          <div key={item.id} className='flex flex-row m-4 shadow shadow-red-500'>
-            <div>
-              <p>Producto: {item.name}</p>
-              <p>Cantidad: {item.quantity}</p>
+          <div key={item.id} className='relative p-4 m-4 h-44 w-96 flex flex-col text-lg shadow shadow-customBlue rounded-xl'>
+            <div className='flex flex-row'>
+              <div className='pr-4'>
+                <img src={item.image} alt={item.name} className='h-28'/>
+              </div>
+              <div>
+                <p>Product: {item.name}</p>
+                <p>Quantity: {item.quantity}</p>
+                <p>Total: {item.price * item.quantity}</p>
+              </div>
             </div>
-            <img src={item.image} alt={item.name} className='h-32'/>
-            <button onClick={() => removeItem(item.id)} className='cart-button'>
-              Remove
-            </button>
+
+            <div className='flex justify-end absolute bottom-0 right-0'>
+              <button onClick={() => removeItem(item.id)} className='p-2 bg-customBlue font-bold rounded-tl-lg hover:bg-red-500 focus:outline-none'>
+                Remove Item
+              </button>
+            </div>
             
           </div>
         ))}
