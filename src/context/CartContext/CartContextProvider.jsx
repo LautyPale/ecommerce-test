@@ -20,14 +20,13 @@ const CartContextProvider = ({children}) => {
                 },
             ]);
         } else {
-            setCart([
-                cart.map(cartItem => {
-                    cartItem.id === item.id 
-                    ? { ...cartItem, quantity: cartItem.quantity + quantity } 
-                    : cartItem
-                })
-            ])
-
+            setCart(
+                cart.map((cartItem) =>
+                    cartItem.id === item.id
+                        ? { ...cartItem, quantity: cartItem.quantity + quantity }
+                        : cartItem
+                )
+            );
         }
 
     }
@@ -48,16 +47,8 @@ const CartContextProvider = ({children}) => {
 
     console.log(cart)
 
-    const values = {
-        cart,
-        addItem,
-        removeItem,
-        getTotal,
-        clear
-    }
-
     return (
-        <CartContext.Provider value={values}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, getTotal, clear }}>
             {children}
         </CartContext.Provider>
     )
