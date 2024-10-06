@@ -64,11 +64,11 @@ export default function Counter({ onAdd, quantity = 1, itemStock }) {
     return (
 
         <div>
-            <div className="rounded-full text-white bg-black flex flew-row items-center border border-white">
-                <button onClick={handleDecrement} className="p-2 pr-3 rounded-l-full bg-customOrange text-2xl text-white">-</button>
+            <div className="rounded-full text-white bg-ebony-black flex flew-row items-center border border-carbon-black">
+                <button onClick={handleDecrement} className="p-2 pr-2 rounded-l-full bg-customOrangeDark text-2xl text-white">-</button>
                 <span className={`px-4 select-none ${animate ? 'text-red-500 animate-pulse' : ''}`}>{stock === 0 ? 0 : count}</span>
-                <button onClick={handleIncrement} className="p-2 pl-3 rounded-r-full bg-customBlue text-2xl text-white">+</button>
-                <button onClick={handleAddToCart} className={`p-2 px-4 font-extrabold ${stock === 0 ? 'text-red-500' : 'hover:text-customOrange'}`} 
+                <button onClick={handleIncrement} className="p-2 pl-2 rounded-r-full bg-customBlueDark text-2xl text-white">+</button>
+                <button onClick={handleAddToCart} className={`p-2 px-4 font-extrabold ${stock === 0 ? 'text-red-500' : 'hover:text-customOrangeDark'}`} 
                 disabled={stock === 0}>Add to cart</button>
 
                 <ToastContainer 
@@ -82,7 +82,7 @@ export default function Counter({ onAdd, quantity = 1, itemStock }) {
                     draggable
                     pauseOnHover={false}
                     theme="dark"
-                    className={"pt-20"}/>
+                    className={"mt-16"}/>
             </div>
 
         </div>

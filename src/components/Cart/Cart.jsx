@@ -6,7 +6,9 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore'
 export default function CartDetail () {
 
   const [orderId, setOrderId] = useState('')
-  const { cart, removeItem, getTotal, clear } = useContext(CartContext)
+  const {cart, removeItem, getTotal, clear } = useContext(CartContext)
+
+  console.log(cart)
 
   const [buyer, setBuyer] = useState({
     name: '',
@@ -79,10 +81,10 @@ export default function CartDetail () {
 
   return (
     <div className='flex flex-col items-center'>
-      <div className='mx-auto text-4xl py-4'>CART</div>
+      <div className='text-4xl py-4 font-bold'>CART</div>
       <div className='flex flex-row'>
         {cart.map((item) => (
-          <div key={item.id} className='relative p-4 m-4 h-44 w-96 flex flex-col text-lg shadow shadow-customBlue rounded-xl'>
+          <div key={item.id} className='relative p-4 m-4 h-44 w-96 flex flex-col text-lg bg-ink-black rounded-xl'>
             <div className='flex flex-row'>
               <div className='pr-4'>
                 <img src={item.image} alt={item.name} className='h-28'/>
@@ -90,12 +92,12 @@ export default function CartDetail () {
               <div>
                 <p>Product: {item.name}</p>
                 <p>Quantity: {item.quantity}</p>
-                <p>Total: {item.price * item.quantity}</p>
+                <p>Total: {(item.price * item.quantity).toFixed(2)}</p>
               </div>
             </div>
 
             <div className='flex justify-end absolute bottom-0 right-0'>
-              <button onClick={() => removeItem(item.id)} className='p-2 bg-customBlue font-bold rounded-tl-lg hover:bg-red-500 focus:outline-none'>
+              <button onClick={() => removeItem(item.id)} className='p-2 bg-customOrangeDark font-bold rounded-tl-xl rounded-br-xl hover:bg-red-800 focus:outline-none'>
                 Remove Item
               </button>
             </div>

@@ -41,7 +41,7 @@ export default function ItemListContainer () {
           
         <svg 
           aria-hidden="true" 
-          className="w-16 h-16 text-gray-200 animate-spin dark:text-gray-600 fill-customOrange"
+          className="w-16 h-16 text-gray-200 animate-spin dark:text-carbon-black fill-customOrangeDark"
           viewBox="0 0 100 101" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +59,7 @@ export default function ItemListContainer () {
   }
 
   const getRandomDeals = (products) => {
-    const lowPriceProducts = products.filter(product => product.price < 200);
+    const lowPriceProducts = products.filter(product => product.price < 200 && product.stock > 0);
     const shuffled = lowPriceProducts.sort(() => 0.5 - Math.random());
     return shuffled.slice(0, 3);
   }
@@ -69,7 +69,7 @@ export default function ItemListContainer () {
     const deals = getRandomDeals(products);
 
     return (
-      <div className="flex flex-col m-4 h-auto shadow shadow-customBlueDark bg-slate-950 rounded-xl">
+      <div className="flex flex-col m-4 h-auto rounded-xl">
           <div>
             <h1 className="text-5xl text-center pt-8 px-4">Welcome to <span className='text-customOrangeDark'>ComTech Store</span></h1>
           </div>
@@ -86,7 +86,7 @@ export default function ItemListContainer () {
     )
   } else {
     return (
-      <div className="flex flex-col m-4 h-auto shadow shadow-customBlueDark bg-slate-950 rounded-xl">
+      <div className="flex flex-col m-4 h-auto bg-ink-black rounded-xl">
         <div>
           <h2 className='text-4xl m-4 px-4 pt-4'>{categoryIdNames[categoryId]}</h2>
           <ItemList items={products} />

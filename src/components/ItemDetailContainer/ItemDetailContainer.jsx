@@ -39,7 +39,7 @@ export default function ItemDetailContainer() {
           
         <svg 
           aria-hidden="true" 
-          className="w-16 h-16 text-gray-200 animate-spin dark:text-gray-600 fill-customOrange"
+          className="w-16 h-16 text-gray-200 animate-spin dark:text-carbon-black fill-customOrangeDark"
           viewBox="0 0 100 101" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +57,7 @@ export default function ItemDetailContainer() {
   }
 
   return (
-    <div className="mx-auto w-7/12 flex flex-row m-4 shadow shadow-customBlue">
+    <div className="mx-auto w-7/12 flex flex-row m-4">
         <ItemDetail item={item} onAdd={onAdd}/>
     </div>
   )
