@@ -1,17 +1,16 @@
 # Tech E-commerce
 
-![Project Demo](path-to-your-gif.gif)
+![Project Demo](src/assets/ecommerce-gif.gif)
 
 This project is a tech-focused e-commerce web application. It is built using **Vite** for fast development, **React** for the user interface, **Tailwind CSS** for responsive design, **React Router DOM** for navigation, and **Firebase** for authentication and database management.
 
 ## Features
 
-- **User Authentication:** Register and log in using Firebase Authentication.
 - **Shopping Cart System:** Add and remove products from the cart.
-- **Search and Filter System:** Browse products by categories or search for specific items.
+- **Search and Filter System:** Browse products by categories.
 - **Responsive Design:** Optimized for different screen sizes using Tailwind CSS.
 - **Real-time Database:** Products and user data stored in Firebase Firestore.
-- **Product Details Page:** View individual product details and reviews.
+- **Product Details Page:** View individual product details.
 
 ## Tech Stack
 
