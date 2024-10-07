@@ -2,7 +2,7 @@
 
 ![Project Demo](src/assets/ecommerce-gif.gif)
 
-This project is a tech-focused e-commerce web application. It is built using **Vite** for fast development, **React** for the user interface, **Tailwind CSS** for responsive design, **React Router DOM** for navigation, and **Firebase** for authentication and database management.
+This project is a tech-focused e-commerce web application. It is built using **Vite** for fast development, **React** for the user interface, **Tailwind CSS** for responsive design, **React Router DOM** for navigation, and **Firebase** for database management.
 
 ## Features
 
