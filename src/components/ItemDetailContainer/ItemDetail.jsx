@@ -1,8 +1,7 @@
 import Counter from "../Counter/Counter";
 
-// to do, add stock validation
-
 export default function ItemDetail({ item, onAdd }) {
+
   return (
     <div key={item.id} className="mx-auto flex flex-row items-top text-xl rounded-xl bg-ink-black">
       <img src={item.image} alt={item.name} className="p-8 w-[512px] h-[512px]" />
@@ -16,7 +15,7 @@ export default function ItemDetail({ item, onAdd }) {
         </div>
         
 
-        <p className="my-8 text-pretty pr-4">{item.description}</p>
+        <p className="my-2 text-pretty pr-4">{item.description}</p>
 
         <div className="flex flex-row">
           <Counter onAdd={ onAdd } itemStock={item.stock}/>

@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 
+// to do: add a button to add to cart like in ItemDetail
+
 export default function Item ({ item }) {
   return (
     <div key={item.id} className="relative flex flex-row w-[580px] m-4 p-2 rounded-xl bg-carbon-black">

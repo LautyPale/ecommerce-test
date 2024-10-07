@@ -82,9 +82,9 @@ export default function CartDetail () {
   return (
     <div className='flex flex-col items-center'>
       <div className='text-4xl py-4 font-bold'>CART</div>
-      <div className='flex flex-row'>
+      <div className='flex flex-row flex-wrap justify-center'>
         {cart.map((item) => (
-          <div key={item.id} className='relative p-4 m-4 h-44 w-96 flex flex-col text-lg bg-ink-black rounded-xl'>
+          <div key={item.id} className='relative p-4 m-4 h-44 w-[442px] flex flex-col text-lg bg-ink-black rounded-xl'>
             <div className='flex flex-row'>
               <div className='pr-4'>
                 <img src={item.image} alt={item.name} className='h-28'/>
@@ -92,7 +92,7 @@ export default function CartDetail () {
               <div>
                 <p>Product: {item.name}</p>
                 <p>Quantity: {item.quantity}</p>
-                <p>Total: {(item.price * item.quantity).toFixed(2)}</p>
+                <p>Sub-Total: {(item.price * item.quantity).toFixed(2)}</p>
               </div>
             </div>
 
@@ -105,6 +105,8 @@ export default function CartDetail () {
           </div>
         ))}
       </div>
+
+      <div className='m-4 text-3xl font-bold'>Total: ${getTotal().toFixed(2)}</div>
 
       <Form
         handleInputChange={handleInputChange} 
